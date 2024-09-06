@@ -219,7 +219,7 @@ def losers():
 
         loss = tr.find_all(
             'td', attrs={'width': 45, 'align': 'right', "class": 'red'})
-        if len(loss) === 0:
+        if len(loss) == 0:
             continue
 
         companyLoss.append(float(loss[1].text.replace(',', '')))
