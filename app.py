@@ -184,7 +184,7 @@ def losers():
     companyChange = []
     companyLoss = []
 
-    for tr in tablerow:
+    for tr in len(tablerow):
         high = tr.find_all('td', attrs={'width': 75, 'align': 'right'})
 
         for i in high:
@@ -211,7 +211,7 @@ def losers():
             'td', attrs={'width': 45, 'align': 'right', "class": 'red'})
         if len(change) == 0:
             continue
-        for i in change:
+        for i,j in change:
 
             cchange = i.text.replace(',', '')
             companyChange.append(cchange)
@@ -219,7 +219,7 @@ def losers():
 
         loss = tr.find_all(
             'td', attrs={'width': 45, 'align': 'right', "class": 'red'})
-        if len(loss) == 0:
+        if len(loss) === 0:
             continue
 
         companyLoss.append(float(loss[1].text.replace(',', '')))
@@ -238,7 +238,7 @@ def losers():
 
     new_dict = sorted(companyData, key=lambda i: i['Loss_in_per'])
 
-    return jsonify(data=(new_dict)), 201
+    return jsonify(data=(new_dict)), 300
 
 
 if __name__ == '__main__':
