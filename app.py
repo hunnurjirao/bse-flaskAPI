@@ -13,6 +13,13 @@ def home():
 
 @app.route("/trending", methods=['GET'])
 def trending():
+    """Fetches trending stock information from a financial market stats web page.
+    Returns:
+        - tuple: A tuple containing a Flask JSON response with trending stock data and the status code 201.
+    Processing Logic:
+        - Scrapes the Moneycontrol website for stock data using BeautifulSoup.
+        - Parses the response to extract company names and their corresponding high, low, close prices, and change percentage.
+        - Sorts the companies by the percentage change in descending order."""
     data = requests.get(
         'https://www.moneycontrol.com/stocks/marketstats/bsemact1/index.php').text
 
